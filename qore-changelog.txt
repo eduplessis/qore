@@ -1,0 +1,16 @@
+*** Qore Changelog ***
+
+2011.04.27 - version 0.5.3
+ * Changement de place du menu de configuration de qore framework
+
+2011.04.27 - version 0.5.2
+ * Correction: content.php, woo-update.php - extraction dans le bon dossier
+ 
+2011.04.19 - version 0.5.1
+ * Correction: content.php - pour la function post-thumbnail() on doit verifier avant si il est bien enabled dans le theme.
+
+2011.04.10 - version 0.5
+ * Systeme de update avec le tool de woo-theme
+	
+2011.04.01 - version 0.4
+ * First release!
