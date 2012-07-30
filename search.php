@@ -7,6 +7,7 @@
 get_header(); ?>
 
 		<section id="primary">
+			<?php qore_begining_section() ?>
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
@@ -16,14 +17,14 @@ get_header(); ?>
 				</header>
 
 				<?php get_template_part('navigation')?>
-				
+
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					
+
 					<?php get_template_part( 'content', 'search' ); ?>
 
 				<?php endwhile; ?>
-				
+
 				<?php /* Display navigation to next/previous pages when applicable */ ?>
 				<?php if (  $wp_query->max_num_pages > 1 ) : ?>
 					<nav id="nav-below">
@@ -31,7 +32,7 @@ get_header(); ?>
 						<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'toolbox' ) ); ?></div>
 						<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'toolbox' ) ); ?></div>
 					</nav><!-- #nav-below -->
-				<?php endif; ?>				
+				<?php endif; ?>
 
 			<?php else : ?>
 
@@ -49,7 +50,7 @@ get_header(); ?>
 			<?php endif; ?>
 
 			</div><!-- #content -->
+			<?php qore_closing_section() ?>
 		</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
