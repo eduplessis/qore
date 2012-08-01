@@ -330,6 +330,22 @@ function qore_excerpt_length($length) {
   return POST_EXCERPT_LENGTH;
 }
 
+function qore_excerpt($length_callback='', $more_callback='') {
+  global $post;
+  if(function_exists($length_callback)){
+    add_filter('excerpt_length', $length_callback);
+  }
+  if(function_exists($more_callback)){
+    add_filter('excerpt_more', $more_callback);
+  }
+
+  $output = get_the_excerpt();
+  $output = apply_filters('wptexturize', $output);
+  $output = apply_filters('convert_chars', $output);
+  $output = '<p>'.$output.'</p>';
+  echo $output;
+}
+
 
 add_filter('excerpt_length', 'qore_excerpt_length');
 
@@ -399,22 +415,14 @@ function qore_clean_style_tag($input) {
   return '<link rel="stylesheet" href="' . $matches[2][0] . '"' . $media . '>' . "\n";
 }
 
-function qore_body_class() {
-  $term = get_queried_object();
 
-  if (is_single()) {
-    $cat = get_the_category();
+function qore_body_class( $class ) {
+  if (!is_front_page()) {
+    $class = array_merge($class, array('not-front'));
   }
-
-  if(!empty($cat)) {
-    return $cat[0]->slug;
-  } elseif (isset($term->slug)) {
-    return $term->slug;
-  } elseif (isset($term->page_name)) {
-    return $term->page_name;
-  } elseif (isset($term->post_name)) {
-    return $term->post_name;
-  } else {
-    return;
+  if (get_post_type()) {
+    $class = array_merge($class, array(get_post_type()));
   }
+  return $class;
 }
+add_filter( 'body_class', 'qore_body_class' );
