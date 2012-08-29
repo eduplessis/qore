@@ -327,7 +327,11 @@ add_action('admin_init', 'qore_remove_dashboard_widgets');
 
 // excerpt cleanup
 function qore_excerpt_length($length) {
-  return POST_EXCERPT_LENGTH;
+  if (defined('POST_EXCERPT_LENGTH')) {
+    return POST_EXCERPT_LENGTH;
+  }
+  return 50;
+
 }
 
 function qore_excerpt($length_callback='', $more_callback='') {

@@ -105,7 +105,7 @@ function qore_filters() {
 
 	/* Defining list of filters */
 
-	function get_qore_mainMenu() {
+	function get_qore_mainMenu($args='') {
 		$defaults = array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_id' => 'mainMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_mainMenu_args', $args );
 		$qore_mainMenu = wp_parse_args( $args, $defaults );
@@ -114,7 +114,7 @@ function qore_filters() {
 		return apply_filters( 'get_qore_mainMenu', $qore_mainMenu );
 	}
 
-	function get_qore_topMenu() {
+	function get_qore_topMenu($args='') {
 		$defaults = array( 'theme_location' => 'topMenu', 'container' => 'nav', 'container_id' => 'topMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_topMenu_args', $args );
 		$qore_topMenu = wp_parse_args( $args, $defaults );
@@ -123,7 +123,7 @@ function qore_filters() {
 		return apply_filters( 'get_qore_topMenu', $qore_topMenu );
 	}
 
-	function get_qore_footerMenu() {
+	function get_qore_footerMenu($args='') {
 		$defaults = array( 'theme_location' => 'footerMenu', 'container' => 'nav', 'container_id' => 'footerMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_footerMenu_args', $args );
 		$qore_footerMenu = wp_parse_args( $args, $defaults );
