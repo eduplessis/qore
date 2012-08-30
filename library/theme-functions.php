@@ -13,7 +13,7 @@ add_action( 'after_setup_theme', 'qore_filters' );
 add_action( 'template_redirect', 'qore_enqueues' , 9);
 
 add_action( 'admin_init', 'qore_version_init' );
-add_action()
+
 
 function qore_version_init() {
 
@@ -43,7 +43,7 @@ function qore_constants() {
 }
 
 function qore_extensions() {
-	if(function_exists('icl_get_home_url'){
+	if( function_exists( 'icl_get_home_url' ) ){
 		require_once ( QORE_LIBRARY_ROOT . 'extensions/wpml-integration.php');
 	}
 }
