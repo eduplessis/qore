@@ -10,7 +10,7 @@ add_action( 'after_setup_theme', 'qore_hooks' );
 
 add_action( 'after_setup_theme', 'qore_filters' );
 
-add_action( 'template_redirect', 'qore_enqueues' , 9);
+add_action( 'template_redirect', 'qore_enqueues' , 9 );
 
 add_action( 'admin_init', 'qore_version_init' );
 
@@ -43,16 +43,16 @@ function qore_constants() {
 }
 
 function qore_extensions() {
-	if( function_exists( 'icl_get_home_url' ) ){
-		require_once ( QORE_LIBRARY_ROOT . 'extensions/wpml-integration.php');
+	if ( function_exists( 'icl_get_home_url' ) ) {
+		require_once QORE_LIBRARY_ROOT . 'extensions/wpml-integration.php';
 	}
 }
 
 function qore_functions() {
-//	require_once ( QORE_LIBRARY_ROOT . 'functions/theme-options.php');           // We don't need Admin page for now
-	require_once ( QORE_LIBRARY_ROOT . 'functions/menus.php');
-	require_once ( QORE_LIBRARY_ROOT . 'functions/qore-cleanup.php');
-	require_once ( QORE_LIBRARY_ROOT . 'functions/seo.php');
+	// require_once ( QORE_LIBRARY_ROOT . 'functions/theme-options.php');           // We don't need Admin page for now
+	require_once QORE_LIBRARY_ROOT . 'functions/menus.php';
+	require_once QORE_LIBRARY_ROOT . 'functions/qore-cleanup.php';
+	require_once QORE_LIBRARY_ROOT . 'functions/seo.php';
 }
 
 function qore_hooks() {
@@ -109,7 +109,7 @@ function qore_filters() {
 
 	/* Defining list of filters */
 
-	function get_qore_mainMenu($args='') {
+	function get_qore_mainMenu( $args='' ) {
 		$defaults = array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_id' => 'mainMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_mainMenu_args', $args );
 		$qore_mainMenu = wp_parse_args( $args, $defaults );
@@ -118,16 +118,16 @@ function qore_filters() {
 		return apply_filters( 'get_qore_mainMenu', $qore_mainMenu );
 	}
 
-	function get_qore_topMenu($args='') {
+	function get_qore_topMenu( $args='' ) {
 		$defaults = array( 'theme_location' => 'topMenu', 'container' => 'nav', 'container_id' => 'topMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_topMenu_args', $args );
 		$qore_topMenu = wp_parse_args( $args, $defaults );
 
-		$qore_topMenu = wp_nav_menu($qore_topMenu);
+		$qore_topMenu = wp_nav_menu( $qore_topMenu );
 		return apply_filters( 'get_qore_topMenu', $qore_topMenu );
 	}
 
-	function get_qore_footerMenu($args='') {
+	function get_qore_footerMenu( $args='' ) {
 		$defaults = array( 'theme_location' => 'footerMenu', 'container' => 'nav', 'container_id' => 'footerMenu', 'echo' => FALSE );
 		$args = apply_filters( 'get_qore_footerMenu_args', $args );
 		$qore_footerMenu = wp_parse_args( $args, $defaults );
