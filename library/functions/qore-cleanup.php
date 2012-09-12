@@ -4,38 +4,6 @@
 // https://github.com/retlehs/roots
 
 
-// redirect /?s to /search/
-// http://txfx.net/wordpress-plugins/nice-search/
-function qore_nice_search_redirect() {
-  if (is_search() && strpos($_SERVER['REQUEST_URI'], '/wp-admin/') === false && strpos($_SERVER['REQUEST_URI'], '/search/') === false) {
-    wp_redirect(home_url('/search/' . str_replace(array(' ', '%20'), array('+', '+'), urlencode(get_query_var('s')))), 301);
-      exit();
-  }
-}
-
-add_action('template_redirect', 'qore_nice_search_redirect');
-
-function qore_search_query($escaped = true) {
-  $query = apply_filters('qore_search_query', get_query_var('s'));
-  if ($escaped) {
-      $query = esc_attr($query);
-  }
-  return urldecode($query);
-}
-
-add_filter('get_search_query', 'qore_search_query');
-
-// fix for empty search query
-// http://wordpress.org/support/topic/blank-search-sends-you-to-the-homepage#post-1772565
-function qore_request_filter($query_vars) {
-  if (isset($_GET['s']) && empty($_GET['s'])) {
-    $query_vars['s'] = " ";
-  }
-  return $query_vars;
-}
-
-add_filter('request', 'qore_request_filter');
-
 // root relative URLs for everything
 // inspired by http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/
 // thanks to Scott Walkinshaw (scottwalkinshaw.com)
