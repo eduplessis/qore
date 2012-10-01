@@ -10,7 +10,7 @@
 <?php qore_before_container(); ?>
 <div id="container">
 	<?php qore_before_header(); ?>
-	<div id="header">
+	<header>
 		<?php echo get_qore_header(); ?>
-	</div>
+	</header>
 	<?php qore_after_header(); ?>
