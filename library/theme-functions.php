@@ -168,7 +168,7 @@ function qore_enqueues() {
 		wp_register_script( 'html5', 'http://html5shiv.googlecode.com/svn/trunk/html5.js' );
 		wp_register_script('bootstrapJS', trailingslashit( QORE_JS_PATH ) . 'bootstrap.min.js' , array('jquery'));
 
-		wp_enqueue_style( 'reset', trailingslashit( QORE_CSS_PATH ) . 'reset.css' );
+		wp_register_style( 'reset', trailingslashit( QORE_CSS_PATH ) . 'reset.css' );
 		wp_register_style( 'fancybox', trailingslashit( QORE_CSS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.css' );
 		wp_register_style( 'supersub', trailingslashit( QORE_CSS_PATH )  . 'superfish.css' );
 		wp_register_style('bootstrapCSS', trailingslashit( QORE_CSS_PATH ) . 'bootstrap.min.css');
