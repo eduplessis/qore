@@ -167,6 +167,7 @@ function qore_enqueues() {
 		wp_register_script( 'supersub', trailingslashit( QORE_JS_PATH ) . 'supersubs.js', array( 'superfish' ) );
 		wp_register_script( 'html5', 'http://html5shiv.googlecode.com/svn/trunk/html5.js' );
 		wp_register_script('bootstrapJS', trailingslashit( QORE_JS_PATH ) . 'bootstrap.min.js' , array('jquery'));
+		wp_register_script('equalHeights', trailingslashit( QORE_JS_PATH ) . 'equalheights.js', array('jquery'));
 
 		wp_register_style( 'reset', trailingslashit( QORE_CSS_PATH ) . 'reset.css' );
 		wp_register_style( 'fancybox', trailingslashit( QORE_CSS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.css' );
