@@ -7,7 +7,7 @@ get_header(); ?>
 			<div id="content" role="main">
 				<?php if (condition): ?>
 
-				<h1 class="archive-title"><?php single_term_title( $prefix, $display ); ?> </h1>
+				<h1 class="archive-title"><?php single_term_title(); ?> </h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>
 
