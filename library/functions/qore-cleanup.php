@@ -389,12 +389,21 @@ function qore_clean_style_tag($input) {
 
 
 function qore_body_class( $class ) {
+  global $post;
+  $parents =  get_ancestors($post->ID, get_post_type());
+
+  if ($parents) {
+    $class = array_merge( $class, array( 'ancestor-' . end($parents) . '' ) );
+  }
+
   if (!is_front_page()) {
-    $class = array_merge($class, array('not-front'));
+    $class = array_merge( $class, array('not-front'));
   }
   if (get_post_type()) {
     $class = array_merge($class, array(get_post_type()));
   }
+
+
   return $class;
 }
 add_filter( 'body_class', 'qore_body_class' );
