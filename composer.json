@@ -1,0 +1,18 @@
+{
+    "name": "eduplessis/qore",
+    "description": "A fork of toolbox for the development of the framework Qore",
+    "version": "1.0",
+    "keywords": ["wordpress", "theme"],
+    "homepage": "http://eduplessis.com/",
+    "type": "wordpress-theme",
+    "license": "GNU General Public License",
+    "authors": [
+        {
+            "name": "Edouard Duplessis",
+            "homepage": "http://eduplessis.com"
+        }
+    ],
+    "require": {
+	"composer/installers": "*"
+    }
+}
