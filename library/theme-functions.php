@@ -162,6 +162,7 @@ function qore_enqueues() {
 		wp_register_script( 'gmap', 'http://maps.google.com/maps/api/js?sensor=false' );
 		wp_register_script( 'pngFix', trailingslashit( QORE_JS_PATH ) . 'pngFix/jquery.pngFix.pack.js' );
 		wp_register_script( 'mousewheel', trailingslashit( QORE_JS_PATH ) . 'mousewheel/jquery.mousewheel-3.0.4.pack.js', array( 'jquery' ) );
+		wp_register_script( 'pjax', trailingslashit( QORE_JS_PATH ) . 'pjax.js', array( 'jquery' ), NULL);
 		wp_register_script( 'fancybox', trailingslashit( QORE_JS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.pack.js', array( 'mousewheel' ) );
 		wp_register_script( 'superfish', trailingslashit( QORE_JS_PATH ) . 'superfish.js', array( 'jquery' ) );
 		wp_register_script( 'supersub', trailingslashit( QORE_JS_PATH ) . 'supersubs.js', array( 'superfish' ) );
