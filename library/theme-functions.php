@@ -157,18 +157,18 @@ function qore_enqueues() {
 	if ( !is_admin() ) {
 		//wp_deregister_script( 'jquery' );
 		//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' );
-		wp_register_script( 'cycle', trailingslashit( QORE_JS_PATH ) . 'cycle.js', array( 'jquery' ) );
-		wp_register_script( 'cookie', trailingslashit( QORE_JS_PATH ) . 'cookie.js', array( 'jquery' ) );
+		wp_register_script( 'cycle', trailingslashit( QORE_JS_PATH ) . 'cycle.js', array( 'jquery' ), NULL, TRUE);
+		wp_register_script( 'cookie', trailingslashit( QORE_JS_PATH ) . 'cookie.js', array( 'jquery' ), NULL, TRUE);
 		wp_register_script( 'gmap', 'http://maps.google.com/maps/api/js?sensor=false' );
-		wp_register_script( 'pngFix', trailingslashit( QORE_JS_PATH ) . 'pngFix/jquery.pngFix.pack.js' );
-		wp_register_script( 'mousewheel', trailingslashit( QORE_JS_PATH ) . 'mousewheel/jquery.mousewheel-3.0.4.pack.js', array( 'jquery' ) );
-		wp_register_script( 'pjax', trailingslashit( QORE_JS_PATH ) . 'pjax.js', array( 'jquery' ), NULL);
-		wp_register_script( 'fancybox', trailingslashit( QORE_JS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.pack.js', array( 'mousewheel' ) );
-		wp_register_script( 'superfish', trailingslashit( QORE_JS_PATH ) . 'superfish.js', array( 'jquery' ) );
-		wp_register_script( 'supersub', trailingslashit( QORE_JS_PATH ) . 'supersubs.js', array( 'superfish' ) );
+		wp_register_script( 'pngFix', trailingslashit( QORE_JS_PATH ) . 'pngFix/jquery.pngFix.pack.js', array(), NULL, TRUE);
+		wp_register_script( 'mousewheel', trailingslashit( QORE_JS_PATH ) . 'mousewheel/jquery.mousewheel-3.0.4.pack.js', array( 'jquery' ), NULL, TRUE);
+		wp_register_script( 'pjax', trailingslashit( QORE_JS_PATH ) . 'pjax.js', array( 'jquery' ), NULL, TRUE);
+		wp_register_script( 'fancybox', trailingslashit( QORE_JS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.pack.js', array( 'mousewheel' ), NULL, TRUE);
+		wp_register_script( 'superfish', trailingslashit( QORE_JS_PATH ) . 'superfish.js', array( 'jquery' ), NULL, TRUE);
+		wp_register_script( 'supersub', trailingslashit( QORE_JS_PATH ) . 'supersubs.js', array( 'superfish' ), NULL, TRUE);
 		wp_register_script( 'html5', 'http://html5shiv.googlecode.com/svn/trunk/html5.js' );
-		wp_register_script('bootstrapJS', trailingslashit( QORE_JS_PATH ) . 'bootstrap.min.js' , array('jquery'));
-		wp_register_script('equalHeights', trailingslashit( QORE_JS_PATH ) . 'equalheights.js', array('jquery'));
+		wp_register_script('bootstrapJS', trailingslashit( QORE_JS_PATH ) . 'bootstrap.min.js' , array('jquery'), NULL, TRUE);
+		wp_register_script('equalHeights', trailingslashit( QORE_JS_PATH ) . 'equalheights.js', array('jquery'), NULL, TRUE);
 
 		wp_register_style( 'reset', trailingslashit( QORE_CSS_PATH ) . 'reset.css' );
 		wp_register_style( 'fancybox', trailingslashit( QORE_CSS_PATH ) . 'fancybox/jquery.fancybox-1.3.4.css' );
