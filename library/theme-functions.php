@@ -157,6 +157,7 @@ function qore_enqueues() {
 	if ( !is_admin() ) {
 		//wp_deregister_script( 'jquery' );
 		//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' );
+		wp_register_script( 'cycleCarousel', trailingslashit( QORE_JS_PATH ) . 'jquery.cycle2.carousel.min.js', array( 'cycle' ), NULL, TRUE);
 		wp_register_script( 'cycle', trailingslashit( QORE_JS_PATH ) . 'cycle.js', array( 'jquery' ), NULL, TRUE);
 		wp_register_script( 'cookie', trailingslashit( QORE_JS_PATH ) . 'cookie.js', array( 'jquery' ), NULL, TRUE);
 		wp_register_script( 'gmap', 'http://maps.google.com/maps/api/js?sensor=false' );
