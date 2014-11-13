@@ -5,13 +5,6 @@
 function qore_no_generator() { return ''; }
 add_filter('the_generator', 'qore_no_generator');
 
-// cleanup wp_head
-function qore_noindex() {
-  if (get_option('blog_public') === '0') {
-    echo '<meta name="robots" content="noindex,nofollow">', "\n";
-  }
-}
-
 function qore_rel_canonical() {
   if (!is_singular()) {
     return;
@@ -52,14 +45,8 @@ function qore_head_cleanup() {
   remove_action('wp_head', 'wp_generator');
   remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
   remove_action('wp_head', 'noindex', 1);
-  add_action('wp_head', 'qore_noindex');
   add_action('wp_head', 'qore_remove_recent_comments_style', 1);
   add_filter('gallery_style', 'qore_gallery_style');
-
-  if (!class_exists('WPSEO_Frontend')) {
-    remove_action('wp_head', 'rel_canonical');
-    add_action('wp_head', 'qore_rel_canonical');
-  }
 }
 
 add_action('init', 'qore_head_cleanup');
@@ -318,16 +305,6 @@ function qore_change_mce_options($options) {
 }
 
 add_filter('tiny_mce_before_init', 'qore_change_mce_options');
-
-//clean up the default WordPress style tags
-add_filter('style_loader_tag', 'qore_clean_style_tag');
-
-function qore_clean_style_tag($input) {
-  preg_match_all("!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!", $input, $matches);
-  //only display media if it's print
-  $media = $matches[3][0] === 'print' ? ' media="print"' : '';
-  return '<link rel="stylesheet" href="' . $matches[2][0] . '"' . $media . '>' . "\n";
-}
 
 
 function qore_body_class( $class ) {
